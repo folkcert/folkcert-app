@@ -14,11 +14,11 @@ angular.module('ConcertApp')
 
   // development
   .constant('API_ENDPOINT', {
-    host: 'http://ec2-13-55-149-115.ap-southeast-2.compute.amazonaws.com/',
+    host: 'http://local.folkcert-api.com/app_dev.php/',
     port: null,
     path: '',
     needsAuth: false,
-    credential: 'G9jRPRX/0hJ8qCMXxIvQYJoamoOFjyJsUEWef4cAqYZ6SQ+t4M4pjN7RM/lmzpYo0dfSTbOeQALr6tHU/DDawFwJF/RsmyttcKTnqrJPPui1t/8hEoUMeWSstIMQGV7dpkU8xw=='
+    credential: 'notTheRealOne'
   });
 
 

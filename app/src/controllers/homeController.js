@@ -8,9 +8,11 @@
  */
 module.exports = [
     '$scope',
+    'ApiService',
 
-    function($scope)
+    function($scope, $apiService)
     {
         $scope.randomVar = 'Hello World';
+        console.log($apiService.executeGet('search', null, {'filters[keyword]': 'Patricio Rey'}));
     }
 ];

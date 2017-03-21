@@ -51,7 +51,7 @@ angular.module( 'ConcertApp', [
       ;
 
     // redirects to default route for undefined routes
-    $urlRouterProvider.otherwise('/app');
+    $urlRouterProvider.otherwise('/app/home');
   }
 ] )
 
