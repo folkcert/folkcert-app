@@ -13,10 +13,11 @@ module.exports = [
     /**
      * Constructor, with class name
      */
-    function Artist(id, name) {
-      // Public properties, assigned to the instance ('this')
+    function Artist(id, name, picture, relatedNames) {
       this.id = id;
       this.name = name;
+      this.picture = picture;
+      this.relatedNames = relatedNames;
     }
    
     /**
@@ -26,6 +27,14 @@ module.exports = [
       return this.name;
     };
 
+    Artist.prototype.getPicture = function() {
+      return this.picture;
+    };
+
+    Artist.prototype.getRelatedNames = function() {
+      return this.relatedNames;
+    };
+
     /**
      * Static method, assigned to class
      * Instance ('this') is not available in static context
@@ -33,7 +42,9 @@ module.exports = [
     Artist.build = function(data) {
       return new Artist(
         data.id,
-        data.name
+        data.name,
+        data.picture,
+        data.relatedNames
       );
     };
 

@@ -63,9 +63,13 @@ angular.module( 'ConcertApp', [
 
 /* Entities */
 .factory( 'Artist',         require( './entities/artistFactory' ) )
+.factory( 'Genre',         require( './entities/genreFactory' ) )
+.factory( 'LinkType',         require( './entities/linkTypeFactory' ) )
+.factory( 'Link',         require( './entities/linkFactory' ) )
+.factory( 'Concert',         require( './entities/concertFactory' ) )
 
 /* Data Services */
-.factory( 'SongDataService',           require( './dataServices/songDataService' ) )
+.factory( 'ConcertDataService',           require( './dataServices/concertDataService' ) )
 
 /* Configs */
 .config(require( './providers/internationalizationProvider'     ))

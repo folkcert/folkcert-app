@@ -8,11 +8,15 @@
  */
 module.exports = [
     '$scope',
-    'ApiService',
+    'ConcertDataService',
 
-    function($scope, $apiService)
+    function($scope, $concertDataService)
     {
         $scope.randomVar = 'Hello World';
-        console.log($apiService.executeGet('search', null, {'filters[keyword]': 'Patricio Rey'}));
+        var concerts = $concertDataService.getAll();
+        console.log('relol');
+        concerts.then(function(data) {
+            console.log(data)
+        });
     }
 ];
