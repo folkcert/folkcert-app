@@ -1,8 +1,63 @@
+<!-- Header -->
 <div class="row">
     <div class="col-xs-12">
         <div class="jumbotron">
             <h1>{{'APP_TITLE'|translate}}</h1>
             <p>{{randomVar}}</p>
         </div>
+    </div>
+</div>
+
+<!-- Search Form -->
+<div class="row">
+    <div class="col-xs-12">
+        <form>
+            <div class="form-group">
+                <label for="inputSearch">Search Concert</label>
+                <input type="text" class="form-control" id="inputSearch" placeholder="Enter the name of the concert or the artist" ng-model="searchKeyword">
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Search Results -->
+<div class="row" ng-show="searchResults">
+    <div class="col-xs-12">
+    <h3>Concerts</h3>
+        <table class="table" ng-show ="searchResults.concerts.count > 0">
+            <thead>
+                <tr>
+                    <th>Artist</th>
+                    <th>Concert</th>
+                    <th>Location</th>
+                    <th>Relevance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in searchResults.concerts.data">
+                <td>{{item.entry.getArtist().getName()}}</td>
+                <td>{{item.entry.getName()}}</td>
+                <td>{{item.entry.getLocation()}}</td>
+                <td>{{item.relevance}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-12">
+        <h3>Artists</h3>
+        <table class="table" ng-show ="searchResults.artists.count > 0">
+            <thead>
+                <tr>
+                    <th>Artist</th>
+                    <th>Relevance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in searchResults.artists.data">
+                <td>{{item.entry.getName()}}</td>
+                <td>{{item.relevance}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

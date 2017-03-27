@@ -8,15 +8,31 @@
  */
 module.exports = [
     '$scope',
-    'ConcertDataService',
+    '$timeout',
+    'SearchDataService',
 
-    function($scope, $concertDataService)
+    function($scope, $timeout, $searchDataService)
     {
-        $scope.randomVar = 'Hello World';
-        var concerts = $concertDataService.getAll();
-        console.log('relol');
-        concerts.then(function(data) {
-            console.log(data)
-        });
+        $scope.searchKeyword = '';
+        $scope.searchResults = null;
+
+        var searchDelayTimeout;
+
+        $scope.$watch('searchKeyword', function (val) {
+
+            if (searchDelayTimeout) {
+                $timeout.cancel(searchDelayTimeout)
+            }
+
+            searchDelayTimeout = $timeout(function() {
+                $scope.executeSearch();
+            }, 500);
+        })
+
+        $scope.executeSearch = function() {
+            $searchDataService.search($scope.searchKeyword).then(function(data) {
+                $scope.searchResults = data;
+            });
+        }
     }
 ];

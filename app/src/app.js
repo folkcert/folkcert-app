@@ -67,9 +67,11 @@ angular.module( 'ConcertApp', [
 .factory( 'LinkType',         require( './entities/linkTypeFactory' ) )
 .factory( 'Link',         require( './entities/linkFactory' ) )
 .factory( 'Concert',         require( './entities/concertFactory' ) )
+.factory( 'Search',         require( './entities/searchFactory' ) )
 
 /* Data Services */
 .factory( 'ConcertDataService',           require( './dataServices/concertDataService' ) )
+.factory( 'SearchDataService',           require( './dataServices/searchDataService' ) )
 
 /* Configs */
 .config(require( './providers/internationalizationProvider'     ))
