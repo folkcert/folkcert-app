@@ -68,6 +68,13 @@ gulp.task('styles', function() {
       beep();
     });
 
+  var fontAwesome = gulp.src('bower_components/font-awesome/scss/font-awesome.scss')
+    .pipe(plugins.sass(options))
+    .on('error', function(err) {
+      console.log('err: ', err);
+      beep();
+    });
+
   var sassStream = gulp.src('app/styles/main.scss')
     .pipe(plugins.sass(options))
     .on('error', function(err) {
@@ -75,7 +82,7 @@ gulp.task('styles', function() {
       beep();
     });
 
-  return streamqueue({ objectMode: true }, bootstrapStream, sassStream)
+  return streamqueue({ objectMode: true }, bootstrapStream, fontAwesome, sassStream)
     .pipe(plugins.autoprefixer('last 1 Chrome version', 'last 3 iOS versions', 'last 3 Android versions'))
     .pipe(plugins.concat('main.css'))
     .pipe(plugins.if(build, plugins.stripCssComments()))
@@ -145,7 +152,7 @@ gulp.task('scripts', ['browserify'], function() {
 // copy fonts
 gulp.task('fonts', function() {
   return gulp
-    .src(['app/fonts/*.*'])
+    .src(['app/fonts/*.*', 'bower_components/font-awesome/fonts/*.*'])
 
     .pipe(gulp.dest(path.join(targetDir, 'fonts')))
 

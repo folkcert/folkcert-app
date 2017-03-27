@@ -31,14 +31,20 @@
                     <th>Concert</th>
                     <th>Location</th>
                     <th>Relevance</th>
+                    <th>Links</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in searchResults.concerts.data">
-                <td>{{item.entry.getArtist().getName()}}</td>
-                <td>{{item.entry.getName()}}</td>
-                <td>{{item.entry.getLocation()}}</td>
-                <td>{{item.relevance}}</td>
+                    <td>{{item.entry.getArtist().getName()}}</td>
+                    <td>{{item.entry.getName()}}</td>
+                    <td>{{item.entry.getLocation()}}</td>
+                    <td>{{item.relevance}}</td>
+                    <td>
+                        <div ng-repeat="link in item.entry.getLinks()">
+                            <a target="_blank" href="{{link.getUrl()}}"><i class="fa fa-2x {{link.getLinkType().getLogo()}}"></i></a>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
