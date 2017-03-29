@@ -1,2 +1,5 @@
 /node_modules
 /bower_components
+app/scripts/bundle.js
+app/scripts/bundle.js.map
+/.tmp

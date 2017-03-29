@@ -51,7 +51,7 @@ angular.module( 'ConcertApp', [
       ;
 
     // redirects to default route for undefined routes
-    $urlRouterProvider.otherwise('/app');
+    $urlRouterProvider.otherwise('/app/home');
   }
 ] )
 
@@ -63,9 +63,15 @@ angular.module( 'ConcertApp', [
 
 /* Entities */
 .factory( 'Artist',         require( './entities/artistFactory' ) )
+.factory( 'Genre',         require( './entities/genreFactory' ) )
+.factory( 'LinkType',         require( './entities/linkTypeFactory' ) )
+.factory( 'Link',         require( './entities/linkFactory' ) )
+.factory( 'Concert',         require( './entities/concertFactory' ) )
+.factory( 'Search',         require( './entities/searchFactory' ) )
 
 /* Data Services */
-.factory( 'SongDataService',           require( './dataServices/songDataService' ) )
+.factory( 'ConcertDataService',           require( './dataServices/concertDataService' ) )
+.factory( 'SearchDataService',           require( './dataServices/searchDataService' ) )
 
 /* Configs */
 .config(require( './providers/internationalizationProvider'     ))

@@ -19,10 +19,8 @@ module.exports = [
         var factory = {};
 
         factory.executeGet = function(url, id, params) {
-            var endpoint = factory.getEndpoint(url);
-            if (id) {
-                endpoint += '/' + id;
-            }
+            var endpoint = factory.getEndpoint(url, id, params);
+
             var req = {
                 method: 'GET',
                 url: endpoint,
@@ -46,18 +44,32 @@ module.exports = [
             return $http(req);
         };
 
-        factory.getEndpoint = function(suffix) {
+        factory.getEndpoint = function(suffix, id, params) {
             var _api = API_ENDPOINT;
             var endpoint = _api.port ?
                 (_api.host + ':' + _api.port + _api.path) :
                 (_api.host + _api.path);
 
-            return endpoint + suffix;
+            endpoint += suffix;
+
+            if (id) {
+                endpoint += '/' + id;
+            }
+
+            if (params) {
+                endpoint += '?';
+                var paramsArray = [];
+                angular.forEach(params, function(value, key) {
+                    paramsArray.push(key + '=' + value);
+                });
+                endpoint += paramsArray.join('&');
+            }
+            return endpoint;
         };
 
         factory.getHeaders = function() {
             return {
-                'x-app-credentials': API_ENDPOINT.credential
+                'x-user-token': API_ENDPOINT.credential
             };
         };
 

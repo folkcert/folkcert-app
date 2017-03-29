@@ -20,5 +20,7 @@ module.exports = [
         });
 
         $translateProvider.preferredLanguage('en');
+
+        $translateProvider.useSanitizeValueStrategy('escape');
     }
 ];

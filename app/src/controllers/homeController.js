@@ -8,9 +8,31 @@
  */
 module.exports = [
     '$scope',
+    '$timeout',
+    'SearchDataService',
 
-    function($scope)
+    function($scope, $timeout, $searchDataService)
     {
-        $scope.randomVar = 'Hello World';
+        $scope.searchKeyword = '';
+        $scope.searchResults = null;
+
+        var searchDelayTimeout;
+
+        $scope.$watch('searchKeyword', function (val) {
+
+            if (searchDelayTimeout) {
+                $timeout.cancel(searchDelayTimeout)
+            }
+
+            searchDelayTimeout = $timeout(function() {
+                $scope.executeSearch();
+            }, 500);
+        })
+
+        $scope.executeSearch = function() {
+            $searchDataService.search($scope.searchKeyword).then(function(data) {
+                $scope.searchResults = data;
+            });
+        }
     }
 ];
