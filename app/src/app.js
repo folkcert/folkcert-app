@@ -73,8 +73,9 @@ angular.module( 'ConcertApp', [
 .factory('ConcertDataService',           require('./dataServices/concertDataService'))
 .factory('SearchDataService',            require('./dataServices/searchDataService'))
 
-/* Data Services */
+/* Directives */
 .directive('searchResultConcert',        require('./directives/searchResultConcertDirective'))
+.directive('searchResultArtist',         require('./directives/searchResultArtistDirective'))
 
 /* Configs */
 .config(require('./providers/internationalizationProvider'))
