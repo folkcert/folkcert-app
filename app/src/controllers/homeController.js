@@ -30,9 +30,13 @@ module.exports = [
         })
 
         $scope.executeSearch = function() {
-            $searchDataService.search($scope.searchKeyword).then(function(data) {
-                $scope.searchResults = data;
-            });
+            if ($scope.searchKeyword.length >= 3) {
+                $searchDataService.search($scope.searchKeyword).then(function(data) {
+                    $scope.searchResults = data;
+                });
+            } else {
+                $scope.searchResults = null;
+            }
         }
     }
 ];

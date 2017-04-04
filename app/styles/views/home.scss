@@ -1,7 +1,49 @@
-.header {
-
+.content {
+    padding: 1rem;
 }
 
-.content {
-  padding: 1rem;
+.searchSection {
+    h3 {
+        text-align: left;
+        margin: 0 0 20px;
+    }
+
+    #artistsList {
+        margin-top: 20px;
+    }
+
+    .resultItem {
+        .resultItemThumbnail {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            min-height: 175px;
+        }
+
+        .resultItemInfo {
+            font-size: 0.8em;
+            padding: 10px;
+            text-align: left;
+            min-height: 100px;
+
+            h1 {
+                font-weight: 600;
+                font-size: inherit;
+                letter-spacing: 0.1rem;
+                margin: 0 0 0.5rem 0;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            h2 {
+                font-size: inherit;
+                letter-spacing: 0.2rem;
+                font-weight: normal;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    }
 }

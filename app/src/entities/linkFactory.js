@@ -14,11 +14,12 @@ module.exports = [
     /**
      * Constructor, with class name
      */
-    function Link(id, linkCode, linkType) {
+    function Link(id, linkCode, thumbnail, linkType) {
       // Public properties, assigned to the instance ('this')
       this.id = id;
       this.linkCode = linkCode;
       this.linkType = linkType;
+      this.thumbnail = thumbnail;
     }
    
     /**
@@ -30,6 +31,10 @@ module.exports = [
 
     Link.prototype.getLinkType = function() {
       return this.linkType;
+    };
+
+    Link.prototype.getThumbnail = function() {
+      return this.thumbnail;
     };
 
     Link.prototype.getUrl = function() {
@@ -44,6 +49,7 @@ module.exports = [
       return new Link(
         data.id,
         data.linkCode,
+        data.thumbnail,
         LinkType.build(data.linkType)
       );
     };
