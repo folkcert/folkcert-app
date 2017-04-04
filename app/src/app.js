@@ -56,23 +56,26 @@ angular.module( 'ConcertApp', [
 ] )
 
 /* Controllers */
-.controller( 'HomeController',           require( './controllers/homeController'     ) )
+.controller('HomeController',            require('./controllers/homeController'))
 
 /* Services */
-.factory( 'ApiService',            require( './services/apiService'     ) )
+.factory('ApiService',                   require('./services/apiService'))
 
 /* Entities */
-.factory( 'Artist',         require( './entities/artistFactory' ) )
-.factory( 'Genre',         require( './entities/genreFactory' ) )
-.factory( 'LinkType',         require( './entities/linkTypeFactory' ) )
-.factory( 'Link',         require( './entities/linkFactory' ) )
-.factory( 'Concert',         require( './entities/concertFactory' ) )
-.factory( 'Search',         require( './entities/searchFactory' ) )
+.factory('Artist',                       require('./entities/artistFactory'))
+.factory('Genre',                        require('./entities/genreFactory'))
+.factory('LinkType',                     require('./entities/linkTypeFactory'))
+.factory('Link',                         require('./entities/linkFactory'))
+.factory('Concert',                      require('./entities/concertFactory'))
+.factory('Search',                       require('./entities/searchFactory'))
 
 /* Data Services */
-.factory( 'ConcertDataService',           require( './dataServices/concertDataService' ) )
-.factory( 'SearchDataService',           require( './dataServices/searchDataService' ) )
+.factory('ConcertDataService',           require('./dataServices/concertDataService'))
+.factory('SearchDataService',            require('./dataServices/searchDataService'))
+
+/* Data Services */
+.directive('searchResultConcert',        require('./directives/searchResultConcertDirective'))
 
 /* Configs */
-.config(require( './providers/internationalizationProvider'     ))
+.config(require('./providers/internationalizationProvider'))
 ;

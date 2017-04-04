@@ -12,7 +12,8 @@ module.exports = [
     function($translateProvider)
     {
         $translateProvider.translations('en', {
-            APP_TITLE: 'Folkcert',
+            APP_TITLE: 'Beetho',
+            APP_SLOGAN: 'All the concerts you want to listen, for free',
         });
 
         $translateProvider.translations('es', {

@@ -1,69 +1,40 @@
-<!-- Header -->
-<div class="row">
-    <div class="col-xs-12">
-        <div class="jumbotron">
-            <h1>{{'APP_TITLE'|translate}}</h1>
-            <p>{{randomVar}}</p>
+<div class="inner" ng-class="{'has-results': searchResults}">
+    <h1>{{'APP_TITLE'|translate}}</h1>
+    <p>
+        {{'APP_SLOGAN'|translate}}
+    </p>
+</div>
+<div class="searchSection">
+    <!-- Search Form -->
+    <div class="row">
+        <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputSearch" placeholder="Enter the name of the concert or the artist" ng-model="searchKeyword">
+                </div>
+            </form>
         </div>
     </div>
-</div>
 
-<!-- Search Form -->
-<div class="row">
-    <div class="col-xs-12">
-        <form>
-            <div class="form-group">
-                <label for="inputSearch">Search Concert</label>
-                <input type="text" class="form-control" id="inputSearch" placeholder="Enter the name of the concert or the artist" ng-model="searchKeyword">
+    <!-- Search Results -->
+    <div class="row" ng-show="searchResults" ng-animate="true" id="searchResults">
+        <div class="col-xs-12" id="concertsList">
+            <h3>Concerts</h3>
+            <div class="row" ng-show ="searchResults.concerts.count > 0">
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" ng-repeat="item in searchResults.concerts.data">
+                    <search-result-concert concert="item.entry"></search-result-concert>
+                </div>
             </div>
-        </form>
-    </div>
-</div>
-
-<!-- Search Results -->
-<div class="row" ng-show="searchResults">
-    <div class="col-xs-12">
-    <h3>Concerts</h3>
-        <table class="table" ng-show ="searchResults.concerts.count > 0">
-            <thead>
-                <tr>
-                    <th>Artist</th>
-                    <th>Concert</th>
-                    <th>Location</th>
-                    <th>Relevance</th>
-                    <th>Links</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in searchResults.concerts.data">
-                    <td>{{item.entry.getArtist().getName()}}</td>
-                    <td>{{item.entry.getName()}}</td>
-                    <td>{{item.entry.getLocation()}}</td>
-                    <td>{{item.relevance}}</td>
-                    <td>
-                        <div ng-repeat="link in item.entry.getLinks()">
-                            <a target="_blank" href="{{link.getUrl()}}"><i class="fa fa-2x {{link.getLinkType().getLogo()}}"></i></a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-xs-12">
-        <h3>Artists</h3>
-        <table class="table" ng-show ="searchResults.artists.count > 0">
-            <thead>
-                <tr>
-                    <th>Artist</th>
-                    <th>Relevance</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in searchResults.artists.data">
-                <td>{{item.entry.getName()}}</td>
-                <td>{{item.relevance}}</td>
-                </tr>
-            </tbody>
-        </table>
+        </div>
+        <div class="col-xs-12" id="artistsList">
+            <h3>Artists</h3>
+            <div class="row" ng-show ="searchResults.artists.count > 0">
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" ng-repeat="item in searchResults.artists.data">
+                    <div class="resultItem">
+                        <div>{{item.entry.getName()}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
