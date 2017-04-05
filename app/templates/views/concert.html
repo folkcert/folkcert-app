@@ -1,0 +1,15 @@
+<div class="inner" >
+    <h1>{{concert.getName()}}</h1>
+    <h2>{{concert.getArtist().getName()}}</h2>
+    <div ng-init="linkCode = concert.getLinks()[0].getLinkCode()" ng-include="videoTemplate"></div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn button" ui-sref="home"><i class="fa fa-arrow-left"></i></button>
+            <button type="button" class="btn button disabled"><i class="fa fa-star"></i></button>
+            <button type="button" class="btn button disabled"><i class="fa fa-comment"></i></button>
+            <button type="button" class="btn button disabled"><i class="fa fa-share"></i></button>
+        </div>
+    </div>
+</div>

@@ -23,6 +23,10 @@ module.exports = [
     /**
      * Public method, assigned to prototype
      */
+    Artist.prototype.getId = function() {
+      return this.id;
+    };
+
     Artist.prototype.getName = function() {
       return this.name;
     };

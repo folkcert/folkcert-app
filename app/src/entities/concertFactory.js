@@ -31,6 +31,10 @@ module.exports = [
     /**
      * Public method, assigned to prototype
      */
+    Concert.prototype.getId = function() {
+      return this.id;
+    };
+
     Concert.prototype.getName = function() {
       return this.name;
     };

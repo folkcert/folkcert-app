@@ -1,6 +1,8 @@
 <div class="resultItem" >
-    <div class="resultItemThumbnail" style="background-image: url('{{artist.getPicture()}}');"></div>
-    <div class="resultItemInfo">
-        <h1>{{artist.getName()}}</h1>
-    </div>
+    <a ui-sref="artist({ artistId: artist.getId() })">
+        <div class="resultItemThumbnail" style="background-image: url('{{artist.getPicture()}}');"></div>
+        <div class="resultItemInfo">
+            <h1>{{artist.getName()}}</h1>
+        </div>
+    </a>
 </div>
