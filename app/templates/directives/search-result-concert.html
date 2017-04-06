@@ -1,7 +1,9 @@
 <div class="resultItem" >
-    <div class="resultItemThumbnail" style="background-image: url('{{concert.getLinks()[0].getThumbnail()}}');"></div>
-    <div class="resultItemInfo">
-        <h1>{{concert.getArtist().getName()}}</h1>
-        <h2>{{concert.getName()}}</h2>
-    </div>
+    <a ui-sref="concert({ concertId: concert.getId() })">
+        <div class="resultItemThumbnail" style="background-image: url('{{concert.getLinks()[0].getThumbnail()}}');"></div>
+        <div class="resultItemInfo">
+            <h1>{{concert.getArtist().getName()}}</h1>
+            <h2>{{concert.getName()}}</h2>
+        </div>
+    </a>
 </div>

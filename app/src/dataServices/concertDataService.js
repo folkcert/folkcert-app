@@ -21,9 +21,18 @@ module.exports = [
             return ApiService.executeGet('concert', id).then(Concert.apiResponseTransformer)
         };
 
+        var getByArtist = function(artist) {
+            var filters = {
+                'filters[artist]': artist
+            };
+
+            return ApiService.executeGet('concert', null, filters).then(Concert.apiResponseTransformer)
+        };
+
         return {
             getAll: getAll,
-            getOne: getOne
+            getOne: getOne,
+            getByArtist: getByArtist
         };
     }
 ];

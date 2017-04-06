@@ -14,10 +14,12 @@ module.exports = [
         $translateProvider.translations('en', {
             APP_TITLE: 'Beetho',
             APP_SLOGAN: 'All the concerts you want to listen, for free',
+            APP_MENU_SEARCH: 'Search',
+            APP_MENU_ABOUT: 'About',
         });
 
         $translateProvider.translations('es', {
-            APP_TITLE: 'Folkcert',
+            APP_TITLE: 'Beetho',
         });
 
         $translateProvider.preferredLanguage('en');

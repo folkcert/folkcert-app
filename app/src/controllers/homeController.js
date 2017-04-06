@@ -15,6 +15,7 @@ module.exports = [
     {
         $scope.searchKeyword = '';
         $scope.searchResults = null;
+        $scope.showLoading = false;
 
         var searchDelayTimeout;
 
@@ -25,14 +26,17 @@ module.exports = [
             }
 
             searchDelayTimeout = $timeout(function() {
+                $scope.showLoading = true;
                 $scope.executeSearch();
             }, 500);
         })
 
         $scope.executeSearch = function() {
             if ($scope.searchKeyword.length >= 3) {
+                $scope.searchResults = [];
                 $searchDataService.search($scope.searchKeyword).then(function(data) {
                     $scope.searchResults = data;
+                    $scope.showLoading = false;
                 });
             } else {
                 $scope.searchResults = null;

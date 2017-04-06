@@ -23,6 +23,10 @@ module.exports = [
     /**
      * Public method, assigned to prototype
      */
+    Artist.prototype.getId = function() {
+      return this.id;
+    };
+
     Artist.prototype.getName = function() {
       return this.name;
     };
@@ -49,12 +53,13 @@ module.exports = [
     };
 
     Artist.apiResponseTransformer = function(responseData) {
-      if (angular.isArray(responseData)) {
-        return responseData
+      var data = responseData.data;
+      if (angular.isArray(data)) {
+        return data
           .map(Artist.build)
           .filter(Boolean);
       }
-      return Artist.build(responseData);
+      return Artist.build(data);
     };
    
     /**

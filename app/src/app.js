@@ -14,12 +14,13 @@
 //
 // var _ = require( 'lodash' );
 
-angular.module( 'ConcertApp', [
+angular.module('ConcertApp', [
   'ngResource',
   'pascalprecht.translate',
   'youtube-embed',
-  'ui.router'
-] )
+  'ui.router',
+  'vimeoEmbed'
+])
 .config( [
   '$httpProvider',
   '$stateProvider',
@@ -32,31 +33,44 @@ angular.module( 'ConcertApp', [
 
     // Application routing
     $stateProvider
-      .state('app', {
-        url: '/app',
-        abstract: true,
+      .state('home', {
+        url: '/home',
         templateUrl: 'templates/views/home.html',
         controller: 'HomeController'
       })
-      .state('app.home', {
-        url: '/home',
-        cache: true,
-        views: {
-          'viewContent': {
-            templateUrl: 'templates/views/home.html',
-            controller: 'HomeController'
-          }
+      .state('concert', {
+        url: '/concert/:concertId',
+        templateUrl: 'templates/views/concert.html',
+        controller: 'ConcertController',
+        resolve: {
+            concert: ['$stateParams', 'ConcertDataService', function($stateParams, ConcertDataService) {
+              return ConcertDataService.getOne($stateParams.concertId);
+            }]
+        }
+      })
+      .state('artist', {
+        url: '/artist/:artistId',
+        templateUrl: 'templates/views/artist.html',
+        controller: 'ArtistController',
+        resolve: {
+            artist: ['$stateParams', 'ArtistDataService', function($stateParams, ArtistDataService) {
+              return ArtistDataService.getOne($stateParams.artistId);
+            }],
+            concerts: ['$stateParams', 'ConcertDataService', function($stateParams, ConcertDataService) {
+              return ConcertDataService.getByArtist($stateParams.artistId);
+            }]
         }
       })
       ;
 
-    // redirects to default route for undefined routes
-    $urlRouterProvider.otherwise('/app/home');
+    $urlRouterProvider.otherwise('/home');
   }
-] )
+])
 
 /* Controllers */
 .controller('HomeController',            require('./controllers/homeController'))
+.controller('ConcertController',         require('./controllers/concertController'))
+.controller('ArtistController',          require('./controllers/artistController'))
 
 /* Services */
 .factory('ApiService',                   require('./services/apiService'))
@@ -71,6 +85,7 @@ angular.module( 'ConcertApp', [
 
 /* Data Services */
 .factory('ConcertDataService',           require('./dataServices/concertDataService'))
+.factory('ArtistDataService',            require('./dataServices/artistDataService'))
 .factory('SearchDataService',            require('./dataServices/searchDataService'))
 
 /* Directives */

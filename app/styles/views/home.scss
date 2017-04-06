@@ -11,36 +11,41 @@
     #artistsList,
     #concertsList {
         .resultItem {
-            .resultItemThumbnail {
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center;
-                min-height: 175px;
-            }
-
-            .resultItemInfo {
-                font-size: 0.8em;
-                padding: 10px;
-                text-align: left;
-                min-height: 100px;
-
-                h1 {
-                    font-weight: 600;
-                    font-size: inherit;
-                    letter-spacing: 0.1rem;
-                    margin: 0 0 0.5rem 0;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+                .resultItemThumbnail {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    min-height: 175px;
                 }
 
-                h2 {
-                    font-size: inherit;
-                    letter-spacing: 0.2rem;
-                    font-weight: normal;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
+                .resultItemInfo {
+                    font-size: 0.8em;
+                    padding: 10px;
+                    text-align: left;
+                    min-height: 100px;
+
+                    h1 {
+                        font-weight: 600;
+                        font-size: inherit;
+                        letter-spacing: 0.1rem;
+                        margin: 0 0 0.5rem 0;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+
+                    h2 {
+                        font-size: inherit;
+                        letter-spacing: 0.2rem;
+                        font-weight: normal;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
                 }
             }
         }
@@ -50,13 +55,15 @@
         margin-top: 20px;
 
         .resultItem {
-            .resultItemThumbnail {
-                background-size: contain;
-            }
-            .resultItemInfo {
-                h1 {
-                    font-size: 0.7em;
-                    text-align: center;
+            a {
+                .resultItemThumbnail {
+                    background-size: contain;
+                }
+                .resultItemInfo {
+                    h1 {
+                        font-size: 0.7em;
+                        text-align: center;
+                    }
                 }
             }
         }
