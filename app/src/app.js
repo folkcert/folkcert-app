@@ -38,6 +38,11 @@ angular.module('ConcertApp', [
         templateUrl: 'templates/views/home.html',
         controller: 'HomeController'
       })
+      .state('about', {
+        url: '/about',
+        templateUrl: 'templates/views/about.html',
+        controller: 'AboutController'
+      })
       .state('concert', {
         url: '/concert/:concertId',
         templateUrl: 'templates/views/concert.html',
@@ -69,6 +74,7 @@ angular.module('ConcertApp', [
 
 /* Controllers */
 .controller('HomeController',            require('./controllers/homeController'))
+.controller('AboutController',           require('./controllers/aboutController'))
 .controller('ConcertController',         require('./controllers/concertController'))
 .controller('ArtistController',          require('./controllers/artistController'))
 
