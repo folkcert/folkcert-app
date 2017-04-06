@@ -18,7 +18,7 @@ module.exports = [
         };
 
         var getOne = function(id) {
-            return ApiService.executeGet('artist', id).then(Artist.apiResponseTransformer)
+            return ApiService.executeGet('artist', id).then(Artist.apiResponseTransformer);
         };
 
         return {

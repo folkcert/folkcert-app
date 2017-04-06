@@ -18,7 +18,7 @@ module.exports = [
                 'filters[keyword]': keyword
             };
 
-            return ApiService.executeGet('search', null, filters).then(Search.apiResponseTransformer)
+            return ApiService.executeGet('search', null, filters).then(Search.apiResponseTransformer);
         };
 
         return {

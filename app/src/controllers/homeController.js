@@ -22,14 +22,14 @@ module.exports = [
         $scope.$watch('searchKeyword', function (val) {
 
             if (searchDelayTimeout) {
-                $timeout.cancel(searchDelayTimeout)
+                $timeout.cancel(searchDelayTimeout);
             }
 
             searchDelayTimeout = $timeout(function() {
                 $scope.showLoading = true;
                 $scope.executeSearch();
             }, 500);
-        })
+        });
 
         $scope.executeSearch = function() {
             if ($scope.searchKeyword.length >= 3) {
@@ -41,6 +41,6 @@ module.exports = [
             } else {
                 $scope.searchResults = null;
             }
-        }
+        };
     }
 ];

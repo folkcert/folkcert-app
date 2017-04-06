@@ -18,7 +18,7 @@ module.exports = [
         };
 
         var getOne = function(id) {
-            return ApiService.executeGet('concert', id).then(Concert.apiResponseTransformer)
+            return ApiService.executeGet('concert', id).then(Concert.apiResponseTransformer);
         };
 
         var getByArtist = function(artist) {
@@ -26,7 +26,7 @@ module.exports = [
                 'filters[artist]': artist
             };
 
-            return ApiService.executeGet('concert', null, filters).then(Concert.apiResponseTransformer)
+            return ApiService.executeGet('concert', null, filters).then(Concert.apiResponseTransformer);
         };
 
         return {
