@@ -75,13 +75,6 @@ gulp.task('styles', function() {
       beep();
     });
 
-  var sassStream = gulp.src('app/styles/main.scss')
-    .pipe(plugins.sass(options))
-    .on('error', function(err) {
-      console.log('err: ', err);
-      beep();
-    });
-
   var dimensionStream = gulp.src('app/styles/dimension/main.scss')
     .pipe(plugins.sass(options))
     .on('error', function(err) {
@@ -89,7 +82,14 @@ gulp.task('styles', function() {
       beep();
     });
 
-  return streamqueue({ objectMode: true }, bootstrapStream, fontAwesome, sassStream, dimensionStream)
+  var sassStream = gulp.src('app/styles/main.scss')
+    .pipe(plugins.sass(options))
+    .on('error', function(err) {
+      console.log('err: ', err);
+      beep();
+    });
+
+  return streamqueue({ objectMode: true }, bootstrapStream, fontAwesome, dimensionStream, sassStream)
     .pipe(plugins.autoprefixer('last 1 Chrome version', 'last 3 iOS versions', 'last 3 Android versions'))
     .pipe(plugins.concat('main.css'))
     .pipe(plugins.if(build, plugins.stripCssComments()))
