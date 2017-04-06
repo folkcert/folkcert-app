@@ -9,9 +9,11 @@
 module.exports = [
     '$scope',
     'artist',
+    'concerts',
 
-    function($scope, artist)
+    function($scope, artist, concerts)
     {
-        console.log(artist);
+        $scope.artist = artist;
+        $scope.concerts = concerts;
     }
 ];

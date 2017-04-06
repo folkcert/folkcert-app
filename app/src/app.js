@@ -53,8 +53,11 @@ angular.module('ConcertApp', [
         templateUrl: 'templates/views/artist.html',
         controller: 'ArtistController',
         resolve: {
-            concert: ['$stateParams', 'ArtistDataService', function($stateParams, ArtistDataService) {
+            artist: ['$stateParams', 'ArtistDataService', function($stateParams, ArtistDataService) {
               return ArtistDataService.getOne($stateParams.artistId);
+            }],
+            concerts: ['$stateParams', 'ConcertDataService', function($stateParams, ConcertDataService) {
+              return ConcertDataService.getByArtist($stateParams.artistId);
             }]
         }
       })

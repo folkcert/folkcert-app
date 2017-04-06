@@ -1,4 +1,4 @@
-<div class="inner" >
+<div class="inner">
     <h1>{{concert.getName()}}</h1>
     <h2>{{concert.getArtist().getName()}}</h2>
     <div ng-init="linkCode = concert.getLinks()[0].getLinkCode()" ng-include="videoTemplate"></div>
