@@ -7,20 +7,23 @@
  * # HomeController
  */
 module.exports = [
+    '$rootScope',
     '$scope',
     '$timeout',
     'SearchDataService',
 
-    function($scope, $timeout, $searchDataService)
+    function($rootScope, $scope, $timeout, $searchDataService)
     {
-        $scope.searchKeyword = '';
-        $scope.searchResults = null;
+        $scope.searchKeyword = $rootScope.searchKeyword || '';
+        $scope.searchResults = $rootScope.searchResults || null;
         $scope.showLoading = false;
 
         var searchDelayTimeout;
 
-        $scope.$watch('searchKeyword', function (val) {
-
+        $scope.$watch('searchKeyword', function (val, oldval) {
+            if (val === oldval) {
+                return;
+            }
             if (searchDelayTimeout) {
                 $timeout.cancel(searchDelayTimeout);
             }
@@ -37,6 +40,9 @@ module.exports = [
                 $searchDataService.search($scope.searchKeyword).then(function(data) {
                     $scope.searchResults = data;
                     $scope.showLoading = false;
+
+                    $rootScope.searchKeyword = $scope.searchKeyword;
+                    $rootScope.searchResults = $scope.searchResults;
                 });
             } else {
                 $scope.searchResults = null;
