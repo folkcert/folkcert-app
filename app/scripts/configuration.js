@@ -2,7 +2,7 @@
 
 angular.module('ConcertApp')
   .constant('API_ENDPOINT', {
-    host: 'http://local.folkcert-api.com/app_dev.php/',
+    host: 'http://api.beetho.co/',
     port: null,
     path: '',
     needsAuth: false,
