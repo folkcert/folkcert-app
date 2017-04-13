@@ -1,7 +1,10 @@
 <div class="inner">
     <h1>{{concert.getName()}}</h1>
     <h2>{{concert.getArtist().getName()}}</h2>
-    <div ng-init="linkCode = currentLink.getLinkCode()" ng-include="videoTemplate"></div>
+    <div class="videoWrapper">
+        <div class="videoContainer" ng-init="linkCode = currentLink.getLinkCode()" ng-include="videoTemplate">
+        </div>
+    </div>
 </div>
 <div class="row">
     <div class="col-xs-12 col-lg-8 col-lg-offset-2">
