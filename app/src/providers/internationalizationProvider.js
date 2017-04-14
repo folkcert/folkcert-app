@@ -52,6 +52,7 @@ module.exports = [
             APP_ABOUT_8_4_TEXT: 'Angular Youtube-embed plugin',
             APP_ABOUT_8_5_TEXT: 'PHP Search Algorithm',
             APP_ABOUT_8_6_TEXT: 'Creative Commons',
+            APP_ABOUT_8_7_TEXT: 'Favicon Generator'
 
         });
 

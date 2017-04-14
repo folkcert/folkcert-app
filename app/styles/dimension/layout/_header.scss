@@ -51,8 +51,11 @@
             width: 5.5rem;
             height: 5.5rem;
             line-height: 5.5rem;
-            border: solid _size(border-width) _palette(border);
             border-radius: 100%;
+            background-image: url('../images/beetho.png');
+            background-postion: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
 
             .icon {
                 &:before {
