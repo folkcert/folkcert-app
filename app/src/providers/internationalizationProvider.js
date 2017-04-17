@@ -14,11 +14,14 @@ module.exports = [
         $translateProvider.translations('en', {
             APP_TITLE: 'Beetho',
             APP_SLOGAN: 'All the concerts you want to watch, for free',
+
             APP_MENU_SEARCH: 'Search',
             APP_MENU_ABOUT: 'About',
+
             APP_SEARCH_PLACEHOLDER: 'Enter the name of the concert or the artist',
             APP_SEARCH_RESULTS_CONCERTS: 'Concerts',
             APP_SEARCH_RESULTS_ARTISTS: 'Artists',
+
             APP_ARTIST_CONCERTS_SUFFIX: 'Concerts',
 
             APP_ABOUT_1_TITLE: 'The APP',
@@ -59,11 +62,14 @@ module.exports = [
         $translateProvider.translations('es', {
             APP_TITLE: 'Beetho',
             APP_SLOGAN: 'Todos los conciertos que quieras ver, gratis',
+
             APP_MENU_SEARCH: 'Buscar',
             APP_MENU_ABOUT: 'Beetho',
+
             APP_SEARCH_PLACEHOLDER: 'Escribe el nombre del artista o concierto',
             APP_SEARCH_RESULTS_CONCERTS: 'Conciertos',
             APP_SEARCH_RESULTS_ARTISTS: 'Artistas',
+
             APP_ARTIST_CONCERTS_SUFFIX: 'Conciertos',
 
             APP_ABOUT_1_TITLE: 'Acerca de',
