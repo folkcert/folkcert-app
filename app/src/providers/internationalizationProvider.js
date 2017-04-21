@@ -79,7 +79,6 @@ module.exports = [
             APP_ABOUT_2_TEXT: 'Beetho fue desarrollado usando herramientas libres, y su codigo fuente puede ser encontrado en el repositorio de GitHub "Folkcert". Si eres un desarrollador, puedes revisar el codigo fuente, y si encuentras alguna debilidad u oportunidad de mejora, me encantaria que te sientas libre de hacer Fork y proponer tus cambios. Por favor, no lo rompas!',
 
             APP_ABOUT_3_TITLE: 'Sin publicidad',
-            APP_ABOUT_3_TEXT: 'Our objective is to survive without annoying ads, but as you may know, there are bills to pay when maintaining a website. We will really appreciate your help with a donation if you think is worth enough.',
             APP_ABOUT_3_TEXT: 'Nuestro objetivo es sobrevivir en la red sin publicidades molestas, pero como ya sabes, hay cuentas que pagar cuando se mantiene un sitio web. Apreciaremos tu ayuda con una donacion y si consideras que vale la pena.',
 
             APP_ABOUT_4_TITLE: 'API',
