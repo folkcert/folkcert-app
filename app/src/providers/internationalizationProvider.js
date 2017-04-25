@@ -21,6 +21,7 @@ module.exports = [
             APP_SEARCH_PLACEHOLDER: 'Enter the name of the concert or the artist',
             APP_SEARCH_RESULTS_CONCERTS: 'Concerts',
             APP_SEARCH_RESULTS_ARTISTS: 'Artists',
+            APP_SEARCH_RESULTS_NO_RESULTS: 'No results',
 
             APP_ARTIST_CONCERTS_SUFFIX: 'Concerts',
 

@@ -20,11 +20,19 @@
     <div class="row" ng-show="searchResults" ng-animate="true" id="searchResults">
         <div class="col-xs-12" id="concertsList">
             <h3>{{'APP_SEARCH_RESULTS_CONCERTS'|translate}}</h3>
+
             <div class="row" ng-show ="searchResults.concerts.count > 0" ng-if="showLoading === false">
                 <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" ng-repeat="item in searchResults.concerts.data">
                     <search-result-concert concert="item.entry"></search-result-concert>
                 </div>
             </div>
+
+            <div class="row" ng-show ="searchResults.concerts.count == 0" ng-if="showLoading === false">
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 text-left">
+                    {{'APP_SEARCH_RESULTS_NO_RESULTS'|translate}}
+                </div>
+            </div>
+
             <div ng-if="showLoading === true">
                 <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
                 <span class="sr-only">Loading...</span>
@@ -32,9 +40,16 @@
         </div>
         <div class="col-xs-12" id="artistsList">
             <h3>{{'APP_SEARCH_RESULTS_ARTISTS'|translate}}</h3>
+
             <div class="row" ng-show ="searchResults.artists.count > 0" ng-if="showLoading === false">
                 <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" ng-repeat="item in searchResults.artists.data">
                     <search-result-artist artist="item.entry"></search-result-artist>
+                </div>
+            </div>
+
+            <div class="row" ng-show ="searchResults.artists.count == 0" ng-if="showLoading === false">
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 text-left">
+                    {{'APP_SEARCH_RESULTS_NO_RESULTS'|translate}}
                 </div>
             </div>
 
